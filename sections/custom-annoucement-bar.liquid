@@ -1,0 +1,28 @@
+<div class="custom-annoucement-bar">
+    <a href="https://awesomepens.myshopify.com/collections/all" class="custom-annoucement-bar-link">
+        <p class="custom-annoucement-bar-message">This is a test message for a custom announcement</p>
+    </a>
+</div>
+
+<style>
+    
+</style>
+
+
+{%schema%}
+    {
+        "name": "Custom annoucement bar",
+        "settings": [
+            
+        ]
+    }
+{%endschema%}
+
+
+{% stylesheet %}    
+{% endstylesheet %}
+{{'custom-annoucement-bar.css' | asset_url | stylesheet_tag}}
+
+{% javascript %}
+{% endjavascript %}
+
