@@ -1,7 +1,9 @@
 <div class="custom-annoucement-bar">
+    {% if template.name == 'index' or section.settings.show-on-homepage == false %}
     <a href="{{section.settings.link}}" class="custom-annoucement-bar-link">
         <p class="custom-annoucement-bar-message">{{section.settings.announcement-bar-text}}</p>
     </a>
+    {% endif %}
 </div>
 
 <style>
@@ -15,6 +17,7 @@
         padding: {{ section.settings.height }}px;
         background-color: {{ section.settings.background-color }};
         color: {{ section.settings.text-color }};
+        text-transform: {{ section.settings.text-transform }};
     }
 </style>
 
@@ -24,10 +27,16 @@
         "name": "Custom annoucement bar",
         "settings": [
             {
+               "type": "checkbox",
+               "id": "show-on-homepage",
+               "label": "Show only on homepage",
+               "default": true
+            },
+            {
                "type": "text",
                "id": "announcement-bar-text",
-              "default": "This is your announcement",
-              "label": "Annoucement text"
+               "default": "This is your announcement",
+               "label": "Annoucement text"
             },
             {
                "type": "range",
@@ -70,9 +79,32 @@
             {
                "type": "url",
                "id": "link",
-               "label": "Link",
-              "default": "https://awesomepens.myshopify.com/collections/all"
-            }
+               "label": "Link"
+            },
+            {
+               "type": "select",
+               "id": "text-transform",
+               "label": "Text Transform",
+               "options": [
+                  {
+                    "value": "normal",
+                    "label": "Normal"
+                  },
+                  {
+                    "value": "lowercase",
+                    "label": "Lowercase"
+                  },
+                  {
+                    "value": "uppercase",
+                    "label": "Uppercase"
+                  },
+                  {
+                    "value": "capitalize",
+                    "label": "Capitalize first letters"
+                  }
+                ],
+                "default": "normal"
+              }
             
         ]
     }
