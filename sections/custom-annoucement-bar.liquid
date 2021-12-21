@@ -1,26 +1,48 @@
-<div class="custom-annoucement-bar">
-    {% if template.name == 'index' or section.settings.show-on-homepage == false %}
-    <a href="{{section.settings.link}}" class="custom-annoucement-bar-link">
-        <p class="custom-annoucement-bar-message">{{section.settings.announcement-bar-text}}</p>
-    </a>
-    {% endif %}
-</div>
+{% assign count = 0 %}
 
-<style>
-    .custom-annoucement-bar .custom-annoucement-bar-message {
+{% for block in section.blocks %}
 
-        {% if section.settings.bold-text %}
-            font-weight:bold;
+{% case block.type %}
+    {% when 'announcement' %}
+        
+        
+    <div class="custom-annoucement-bar-{{count}}">
+        {% if template.name == 'index' or block.settings.show-on-homepage == false %}
+        <a href="{{block.settings.link}}" class="custom-annoucement-bar-link">
+            <p class="custom-annoucement-bar-message">{{block.settings.announcement-bar-text}}</p>
+        </a>
         {% endif %}
+    </div>
+    
+    <style>
+        .custom-annoucement-bar-{{count}} {
+            text-align: center;
+        }
 
-        font-size: {{ section.settings.font-size }}px;
-        padding: {{ section.settings.height }}px;
-        background-color: {{ section.settings.background-color }};
-        color: {{ section.settings.text-color }};
-        text-transform: {{ section.settings.text-transform }};
-    }
-</style>
+        .custom-annoucement-bar-{{count}} a {
+            text-decoration: none;
+        } 
 
+        .custom-annoucement-bar-{{count}} .custom-annoucement-bar-message {
+            
+            {% if block.settings.bold-text %}
+            font-weight:bold;
+            {% endif %}
+            
+            font-size: {{ block.settings.font-size }}px;
+            padding: {{ block.settings.height }}px;
+            background-color: {{ block.settings.background-color }};
+            margin: 0;
+            color: {{ block.settings.text-color }};
+            text-transform: {{ block.settings.text-transform }};
+        }
+        
+    </style>
+{% assign count = count | plus:1 %}
+
+{% endcase %}
+    
+{% endfor %}
 
 {%schema%}
     {
