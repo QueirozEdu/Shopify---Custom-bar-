@@ -1,11 +1,14 @@
 <div class="custom-annoucement-bar">
     <a href="https://awesomepens.myshopify.com/collections/all" class="custom-annoucement-bar-link">
-        <p class="custom-annoucement-bar-message">{{section.settings.announcement-bar-textg}}</p>
+        <p class="custom-annoucement-bar-message">{{section.settings.announcement-bar-text}}</p>
     </a>
 </div>
 
 <style>
-    
+    .custom-annoucement-bar .custom-annoucement-bar-message {
+        font-size: {{ section.settings.font-size }}px;
+        padding: {{ section.settings.height }}px
+    }
 </style>
 
 
@@ -16,8 +19,28 @@
             {
                "type": "text",
                "id": "announcement-bar-text",
-              "default": "This is your annoucemnt",
+              "default": "This is your announcement",
               "label": "Annoucement text"
+            },
+            {
+               "type": "range",
+               "id": "font-size",
+               "default": 14,
+               "label": "Font size",
+               "min": 12,
+               "max": 25,
+               "step": 1,
+               "unit": "px"
+            },
+            {
+               "type": "range",
+               "id": "height",
+               "default": 5,
+               "label": "Height",
+               "min": 0,
+               "max": 25,
+               "step": 1,
+               "unit": "px"
             }
         ]
     }
