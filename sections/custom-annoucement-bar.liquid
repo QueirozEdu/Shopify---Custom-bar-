@@ -1,13 +1,20 @@
 <div class="custom-annoucement-bar">
-    <a href="https://awesomepens.myshopify.com/collections/all" class="custom-annoucement-bar-link">
+    <a href="{{section.settings.link}}" class="custom-annoucement-bar-link">
         <p class="custom-annoucement-bar-message">{{section.settings.announcement-bar-text}}</p>
     </a>
 </div>
 
 <style>
     .custom-annoucement-bar .custom-annoucement-bar-message {
+
+        {% if section.settings.bold-text %}
+            font-weight:bold;
+        {% endif %}
+
         font-size: {{ section.settings.font-size }}px;
-        padding: {{ section.settings.height }}px
+        padding: {{ section.settings.height }}px;
+        background-color: {{ section.settings.background-color }};
+        color: {{ section.settings.text-color }};
     }
 </style>
 
@@ -33,6 +40,12 @@
                "unit": "px"
             },
             {
+                "type": "checkbox",
+                "id": "bold-text",
+                "label": "Bold Text",
+                "default": false
+            },
+            {
                "type": "range",
                "id": "height",
                "default": 5,
@@ -41,7 +54,26 @@
                "max": 25,
                "step": 1,
                "unit": "px"
+            },
+            {
+               "type": "color",
+               "id": "background-color",
+               "label": "Background Color",
+               "default": "#f1f1f1"
+            },
+            {
+               "type": "color",
+               "id": "text-color",
+               "label": "Text Color",
+               "default": "#000000"
+            },
+            {
+               "type": "url",
+               "id": "link",
+               "label": "Link",
+              "default": "https://awesomepens.myshopify.com/collections/all"
             }
+            
         ]
     }
 {%endschema%}

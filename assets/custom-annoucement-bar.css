@@ -1,4 +1,11 @@
 .custom-annoucement-bar {
     text-align: center;
+}
 
+.custom-annoucement-bar .custom-annoucement-bar-message {
+    margin: 0;
+}
+
+.custom-annoucement-bar a {
+    text-decoration: none;
 }
