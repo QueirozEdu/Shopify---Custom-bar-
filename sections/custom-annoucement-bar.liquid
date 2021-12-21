@@ -25,28 +25,34 @@
 {%schema%}
     {
         "name": "Custom annoucement bar",
-        "settings": [
+        "max_blocks": 4,
+        "blocks": [
+        {
+           "type": "announcement",
+           "name": "Announcement",
+
+            "settings": [
             {
-               "type": "checkbox",
-               "id": "show-on-homepage",
-               "label": "Show only on homepage",
-               "default": true
+                "type": "checkbox",
+                "id": "show-on-homepage",
+                "label": "Show only on homepage",
+                "default": false
             },
             {
-               "type": "text",
-               "id": "announcement-bar-text",
-               "default": "This is your announcement",
-               "label": "Annoucement text"
+                "type": "text",
+                "id": "announcement-bar-text",
+                "default": "This is your announcement",
+                "label": "Annoucement text"
             },
             {
-               "type": "range",
-               "id": "font-size",
-               "default": 14,
-               "label": "Font size",
-               "min": 12,
-               "max": 25,
-               "step": 1,
-               "unit": "px"
+                "type": "range",
+                "id": "font-size",
+                "default": 14,
+                "label": "Font size",
+                "min": 12,
+                "max": 25,
+                "step": 1,
+                "unit": "px"
             },
             {
                 "type": "checkbox",
@@ -55,57 +61,60 @@
                 "default": false
             },
             {
-               "type": "range",
-               "id": "height",
-               "default": 5,
-               "label": "Height",
-               "min": 0,
-               "max": 25,
-               "step": 1,
-               "unit": "px"
+                "type": "range",
+                "id": "height",
+                "default": 5,
+                "label": "Height",
+                "min": 0,
+                "max": 25,
+                "step": 1,
+                "unit": "px"
             },
             {
-               "type": "color",
-               "id": "background-color",
-               "label": "Background Color",
-               "default": "#f1f1f1"
+                "type": "color",
+                "id": "background-color",
+                "label": "Background Color",
+                "default": "#f1f1f1"
             },
             {
-               "type": "color",
-               "id": "text-color",
-               "label": "Text Color",
-               "default": "#000000"
+                "type": "color",
+                "id": "text-color",
+                "label": "Text Color",
+                "default": "#000000"
             },
             {
-               "type": "url",
-               "id": "link",
-               "label": "Link"
+                "type": "url",
+                "id": "link",
+                "label": "Link"
             },
             {
-               "type": "select",
-               "id": "text-transform",
-               "label": "Text Transform",
-               "options": [
-                  {
+                "type": "select",
+                "id": "text-transform",
+                "label": "Text Transform",
+                "options": [
+                {
                     "value": "normal",
                     "label": "Normal"
-                  },
-                  {
+                },
+                {
                     "value": "lowercase",
                     "label": "Lowercase"
-                  },
-                  {
+                },
+                {
                     "value": "uppercase",
                     "label": "Uppercase"
-                  },
-                  {
+                },
+                {
                     "value": "capitalize",
                     "label": "Capitalize first letters"
-                  }
+                }
                 ],
                 "default": "normal"
-              }
-            
+            }
+            ]
+
+   
+        }
         ]
     }
 {%endschema%}
