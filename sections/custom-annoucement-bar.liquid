@@ -1,6 +1,6 @@
 <div class="custom-annoucement-bar">
     <a href="https://awesomepens.myshopify.com/collections/all" class="custom-annoucement-bar-link">
-        <p class="custom-annoucement-bar-message">This is a test message for a custom announcement</p>
+        <p class="custom-annoucement-bar-message">{{section.settings.announcement-bar-textg}}</p>
     </a>
 </div>
 
@@ -13,7 +13,12 @@
     {
         "name": "Custom annoucement bar",
         "settings": [
-            
+            {
+               "type": "text",
+               "id": "announcement-bar-text",
+              "default": "This is your annoucemnt",
+              "label": "Annoucement text"
+            }
         ]
     }
 {%endschema%}
